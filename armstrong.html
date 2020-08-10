@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script>
+$(document).ready(function(){
+
+//calling ajax function on button click
+  $("button").click(function(e){
+		e.preventDefault(); //prevent page from loading on submit of form
+		var num = parseInt($("#num").val());   //Got value of text field
+		$('#alldatacamp').html("Please wait...");
+		scan(num);
+  });
+  
+  //function that sends user input number to php script
+   function scan(num){
+   
+		$.ajax({
+		url:"checker.php",
+		method:"POST",
+		data:{num:num},
+		cache:false,
+		success:function(data)
+		{
+    
+			// Adds output in main page
+			$('#alldatacamp').html(data);
+	 
+	
+		}
+		});
+	}
+});
+</script>
+</head>
+<body>
+
+	<div class="form-control" style="margin: auto;margin-top:180px;
+  width: 30%;
+  border: 3px solid #73AD21;
+  padding: 10px;">
+		<form method="POST">
+		<!-- Default input -->
+<label for="exampleForm2">Enter Number</label>
+<input type="text" id="num" class="form-control">
+		
+			<button class="btn btn-primary"style="margin-top:20px;">Check Armstrong</button>
+		</form>
+	</div >
+	<div id="alldatacamp" class="form-control" style="margin: auto;color:black;width: 30%;border:none;padding: 10px;font-size:20px;text-decoration:underline;text-align:center">
+	 <! -- Result will be loaded here by ajax -->
+	</div>
+</body>
+</html>
+
+
