@@ -4,7 +4,7 @@
 ###Ajax request is made to checker.php to get the result without reloading the page.
 ###Checker.php has two method of finding closest armstrong included. First method is implemented in finding armstrong numbers before 407 and second method is implemented in numbers after 407.
 ##ScreenShots of working Code
-![GitHub Logo](/images/ss1.png)
+![Screenshot](/images/ss1.png)
 Format: ![Alt Text](url)
 
 
